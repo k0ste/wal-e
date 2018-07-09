@@ -54,6 +54,8 @@ def uri_put_file(creds, uri, fp, content_type=None, conn=None):
     if content_type is not None:
         k.content_type = content_type
 
+    encrypt_key = os.getenv('AWS_ENCRYPT_KEY')
+
     k.set_contents_from_file(fp, encrypt_key=True)
     return k
 
